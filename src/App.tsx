@@ -1,13 +1,19 @@
 import React from 'react';
 import './App.css';
-import Typography from './Components/Typography';
+import Typography from './Components/Style/Typography';
+import Space from './Components/Layout/Space';
+import Divider from './Components/Layout/Divider';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Typography type="header">Dropdown component</Typography>
-      </header>
+      <div className="container">
+        <div className="headerContainer">
+          <Typography type="header">Dropdown component</Typography>
+          <Space type="medium" />
+          <Divider type="decorative" />
+        </div>
+      </div>
     </div>
   );
 }
