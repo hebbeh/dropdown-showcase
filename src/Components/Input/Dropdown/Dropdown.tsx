@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, RefObject, useEffect, useRef } from 'react';
 import './Dropdown.css';
 
 export interface DropdownProps {
@@ -11,10 +11,31 @@ export default function Dropdown({ children }: DropdownProps) {
 
 export interface MenuProps {
   children: ReactNode;
+  outsideClick(): void;
 }
 
-function Menu({ children }: MenuProps) {
-  return <div className="menu">{children}</div>;
+function Menu({ children, outsideClick }: MenuProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: any) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      console.log('setFirstMenuVisible');
+      outsideClick();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  });
+
+  return (
+    <div className="menu" ref={ref}>
+      {children}
+    </div>
+  );
 }
 
 export interface ItemProps {
