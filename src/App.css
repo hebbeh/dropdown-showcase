@@ -1,4 +1,20 @@
-.App {
+.container {
   text-align: center;
   background-color: #fbfcff;
+  padding: 40px 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Above phone */
+@media (min-width: 768px) {
+  .container {
+    padding: 72px 20px;
+  }
+}
+
+.headerContainer {
+  width: 60vw;
+  flex-direction: column;
+  align-self: center;
 }
