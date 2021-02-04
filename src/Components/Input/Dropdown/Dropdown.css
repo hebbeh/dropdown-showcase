@@ -17,8 +17,10 @@
   display: flex;
   flex-direction: row;
 }
+
 /* Menu */
 .menu {
+  min-width: 76px;
   display: flex;
   flex-direction: column;
   background-color: #fbfcff;

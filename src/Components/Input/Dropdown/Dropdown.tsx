@@ -20,11 +20,12 @@ function Menu({ children }: MenuProps) {
 export interface ItemProps {
   children: ReactNode;
   tabIndex?: number;
+  onChange(): void;
 }
 
-function Item({ children, tabIndex }: ItemProps) {
+function Item({ children, tabIndex, onChange }: ItemProps) {
   return (
-    <div className="item">
+    <div className="item" onClick={() => onChange()}>
       <div className="itemContent">{children}</div>
     </div>
   );
