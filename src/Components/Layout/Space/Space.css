@@ -1,0 +1,14 @@
+.small {
+  height: 8px;
+  width: 8px;
+}
+
+.medium {
+  height: 22px;
+  width: 22px;
+}
+
+.big {
+  height: 40px;
+  width: 40px;
+}
