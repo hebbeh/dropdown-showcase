@@ -1,0 +1,11 @@
+.data {
+  height: 1px;
+  background-color: #3d4859;
+  width: 100%;
+}
+
+.decorative {
+  height: 4px;
+  background-color: #30ffe6;
+  width: 100%;
+}
