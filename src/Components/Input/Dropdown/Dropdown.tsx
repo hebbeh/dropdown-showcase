@@ -23,7 +23,11 @@ export interface ItemProps {
 }
 
 function Item({ children, tabIndex }: ItemProps) {
-  return <div className="item">{children}</div>;
+  return (
+    <div className="item">
+      <div className="itemContent">{children}</div>
+    </div>
+  );
 }
 
 Dropdown.Item = Item;
