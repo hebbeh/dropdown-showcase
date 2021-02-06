@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import Typography from '../Components/Style/Typography';
 import Icon from '../Components/Style/Icon';
 import Space from '../Components/Layout/Space';
@@ -46,7 +46,6 @@ export default function DropdownShowcaseRoute() {
                 return (
                   <Dropdown.Option
                     onChange={() => {
-                      console.log('option.value', option.value);
                       setFirstMenuAction(option.value);
                     }}
                   >
