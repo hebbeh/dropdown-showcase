@@ -1,17 +1,24 @@
-import React, { useState, useEffect, RefObject, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import Typography from '../Components/Style/Typography';
 import Icon from '../Components/Style/Icon';
 import Space from '../Components/Layout/Space';
 import Dropdown from '../Components/Input/Dropdown';
+import Button from '../Components/Input/Button';
+import Divider from '../Components/Layout/Divider';
 
-function App() {
+export default function DropdownShowcaseRoute() {
   const [firstMenuAction, setFirstMenuAction] = useState('No action selected');
   const [secondMenuAction, setSecondMenuAction] = useState(
     'No action selected'
   );
 
-  const [firstMenuVisible, setFirstMenuVisible] = useState(true);
-  const [secondMenuVisible, setSecondMenuVisible] = useState(true);
+  const handleSelectChange = useCallback(
+    (value: string) => setFirstMenuAction(value),
+    []
+  );
+
+  // MOVE STATE TO BE HANDLED INSIDE, this puts too much
+  // implementation effort on the consumer.
 
   return (
     <>
@@ -20,26 +27,38 @@ function App() {
       </Typography>
       <Space type="medium" />
       <div style={{ height: '260px' }}>
-        {firstMenuVisible && (
-          <Dropdown.Menu
-            outsideClick={() => {
-              console.log('clicked outside');
-              setFirstMenuVisible(false);
-            }}
-          >
-            {dataToBePutInAMenu.map((item) => {
-              return (
-                <Dropdown.Item
-                  onChange={() => {
-                    setFirstMenuAction(item.value);
-                  }}
-                >
-                  <Typography type="content">{item.label}</Typography>
-                </Dropdown.Item>
-              );
-            })}
+        <Dropdown
+          renderTrigger={(onChange: any) => {
+            return (
+              <Button
+                onClick={() => {
+                  onChange();
+                }}
+              >
+                <Typography type="content">Menu One</Typography>
+              </Button>
+            );
+          }}
+        >
+          <Dropdown.Menu>
+            <Dropdown.OptionList
+              options={dataToBePutInAMenu}
+              onChange={() => handleSelectChange}
+              renderItem={(onChange: any, option: any) => {
+                return (
+                  <Dropdown.Option
+                    onChange={() => {
+                      console.log('option.value', option.value);
+                      setFirstMenuAction(option.value);
+                    }}
+                  >
+                    <Typography type="content">{option.label}</Typography>
+                  </Dropdown.Option>
+                );
+              }}
+            />
           </Dropdown.Menu>
-        )}
+        </Dropdown>
       </div>
       <Space type="big" />
       <Space type="big" />
@@ -48,28 +67,57 @@ function App() {
       </Typography>
       <Space type="medium" />
       <div style={{ height: '260px' }}>
-        {secondMenuVisible && (
-          <Dropdown.Menu
-            outsideClick={() => {
-              console.log('clicked outside II');
-              setSecondMenuVisible(false);
-            }}
-          >
-            {dataToBePutInAMenuII.map((item) => {
-              return (
-                <Dropdown.Item
-                  onChange={() => {
-                    setSecondMenuAction(item.value);
-                  }}
-                >
-                  <Icon type="placeholder" />
-                  <Space type="small" />
-                  <Typography type="content">{item.label}</Typography>
-                </Dropdown.Item>
-              );
-            })}
+        <Dropdown
+          renderTrigger={(onChange: any) => {
+            return (
+              <div
+                onClick={() => {
+                  onChange();
+                }}
+              >
+                <Icon type="placeholder" />
+              </div>
+            );
+          }}
+        >
+          <Dropdown.Menu>
+            <Dropdown.OptionList
+              options={dataToBePutInAMenuII}
+              onChange={() => handleSelectChange}
+              renderItem={(onChange: any, option: any) => {
+                return (
+                  <Dropdown.Option
+                    onChange={() => {
+                      console.log('option.value', option.value);
+                      setSecondMenuAction(option.value);
+                    }}
+                  >
+                    <Typography type="content">{option.label}</Typography>
+                  </Dropdown.Option>
+                );
+              }}
+            />
+            <Space type="small" />
+            <Divider type="data" />
+            <Space type="small" />
+            <Dropdown.OptionList
+              options={dataToBePutInAMenuII}
+              onChange={() => handleSelectChange}
+              renderItem={(onChange: any, option: any) => {
+                return (
+                  <Dropdown.Option
+                    onChange={() => {
+                      console.log('option.value', option.value);
+                      setSecondMenuAction(option.value);
+                    }}
+                  >
+                    <Typography type="content">{option.label}</Typography>
+                  </Dropdown.Option>
+                );
+              }}
+            />
           </Dropdown.Menu>
-        )}
+        </Dropdown>
       </div>
     </>
   );
@@ -80,15 +128,10 @@ const dataToBePutInAMenu = [
   { label: 'Dropdown component', value: 'Action2' },
   { label: 'Dropdown component', value: 'Action3' },
   { label: 'Dropdown component', value: 'Action4' },
-  { label: 'Dropdown component', value: 'Action4' }
+  { label: 'Dropdown component', value: 'Action5' }
 ];
 
 const dataToBePutInAMenuII = [
-  { label: 'Dropdown component', value: 'Action5' },
   { label: 'Dropdown component', value: 'Action6' },
-  { label: 'Dropdown component', value: 'Action7' },
-  { label: 'Dropdown component', value: 'Action8' },
-  { label: 'Dropdown component', value: 'Action9' }
+  { label: 'Dropdown component', value: 'Action7' }
 ];
-
-export default App;
