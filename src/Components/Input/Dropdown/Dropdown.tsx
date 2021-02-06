@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useEffect, useRef } from 'react';
 import { DropdownContext } from './DropdownContext';
 import './Dropdown.css';
 
@@ -11,19 +11,24 @@ export interface DropdownProps {
 export default function Dropdown({ children, renderTrigger }: DropdownProps) {
   const [isVisible, setIsVisible] = useState(true);
 
-  //   const ref = useRef<HTMLDivElement>(null);
-  //   const handleClickOutside = (event: any) => {
-  //     if (ref.current && !ref.current.contains(event.target)) {
-  //       setIsVisible(false);
-  //     }
-  //   };
+  // Close menu if user clicks outside of it
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Element)
+      ) {
+        console.log('You clicked outside of me!');
+        if (isVisible) setIsVisible(false);
+      }
+    }
 
-  //   useEffect(() => {
-  //     document.addEventListener('click', handleClickOutside, true);
-  //     return () => {
-  //       document.removeEventListener('click', handleClickOutside, true);
-  //     };
-  //   });
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [wrapperRef, isVisible]);
 
   return (
     <>
@@ -33,7 +38,7 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
         }}
       >
         {renderTrigger(() => setIsVisible(!isVisible))}
-        {isVisible && <div>{children}</div>}
+        {isVisible && <div ref={wrapperRef}>{children}</div>}
       </DropdownContext.Provider>
     </>
   );
