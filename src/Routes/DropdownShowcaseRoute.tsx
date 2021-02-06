@@ -87,28 +87,31 @@ export default function DropdownShowcaseRoute() {
             >
               <Icon type="placeholder" />
               <Space type="small" />
-
               <Typography type="content">
                 Individually composed option 1
               </Typography>
             </Dropdown.Option>
+            <Space type="tiny" />
+            <Divider type="data" />
+            <Space type="tiny" />
             <Dropdown.Option
               onChange={() => {
                 setSecondMenuAction('Action IC 2');
               }}
             >
+              <Icon type="placeholder" />
+              <Space type="small" />
               <Typography type="content">
                 Individually composed option 2
               </Typography>
             </Dropdown.Option>
-            <Space type="small" />
-            <Divider type="data" />
-            <Space type="small" />
             <Dropdown.Option
               onChange={() => {
                 setSecondMenuAction('Action IC 3');
               }}
             >
+              <Icon type="placeholder" />
+              <Space type="small" />
               <Typography type="content">
                 Individually composed option 3
               </Typography>
@@ -118,17 +121,10 @@ export default function DropdownShowcaseRoute() {
                 setSecondMenuAction('Action IC 4');
               }}
             >
+              <Icon type="placeholder" />
+              <Space type="small" />
               <Typography type="content">
                 Individually composed option 4
-              </Typography>
-            </Dropdown.Option>{' '}
-            <Dropdown.Option
-              onChange={() => {
-                setSecondMenuAction('Action IC 5');
-              }}
-            >
-              <Typography type="content">
-                Individually composed option 5
               </Typography>
             </Dropdown.Option>
           </Dropdown.Menu>
@@ -144,13 +140,4 @@ const dataToBePutInAMenu = [
   { label: 'Label option item 3', value: 'Action3' },
   { label: 'Label option item 4', value: 'Action4' },
   { label: 'Label option item 5', value: 'Action5' }
-];
-
-const dataToBePutInAMenuII = [
-  { label: 'Label option item 6', value: 'Action6' },
-  { label: 'Label option item 7', value: 'Action7' }
-];
-const dataToBePutInAMenuIII = [
-  { label: 'Label option item 8', value: 'Action8' },
-  { label: 'Label option item 9', value: 'Action9' }
 ];

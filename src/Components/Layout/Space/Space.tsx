@@ -1,7 +1,7 @@
 import './Space.css';
 
 export interface SpaceProps {
-  type?: 'small' | 'medium' | 'big';
+  type?: 'tiny' | 'small' | 'medium' | 'big';
 }
 
 export default function Space({ type }: SpaceProps) {
