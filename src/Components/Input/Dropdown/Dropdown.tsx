@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { DropdownContext } from './DropdownContext';
 import './Dropdown.css';
 
@@ -17,11 +17,6 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
   //       setIsVisible(false);
   //     }
   //   };
-
-  const handleClickOnTrigger = () => {
-    // setIsVisible(!isVisible);
-    console.log('isVisible', isVisible);
-  };
 
   //   useEffect(() => {
   //     document.addEventListener('click', handleClickOutside, true);
