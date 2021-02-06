@@ -26,8 +26,6 @@
 
 /* Menu */
 .menu {
-  position: absolute;
-  min-width: 76px;
   display: flex;
   flex-direction: column;
   background-color: #fbfcff;

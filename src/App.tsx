@@ -7,7 +7,7 @@ import DropdownShowcaseRoute from './Routes/DropdownShowcaseRoute';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" id="popperBoundary">
       <div className="headerContainer">
         <Typography type="header">Dropdown component</Typography>
         <Space type="medium" />

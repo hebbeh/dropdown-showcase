@@ -1,4 +1,5 @@
 import React, { ReactNode, useState, useEffect, useRef } from 'react';
+import { usePopper } from 'react-popper';
 import { DropdownContext } from './DropdownContext';
 import './Dropdown.css';
 
@@ -8,7 +9,7 @@ export interface DropdownProps {
 }
 
 export default function Dropdown({ children, renderTrigger }: DropdownProps) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Close menu if user clicks outside of it
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -27,6 +28,29 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [wrapperRef, isVisible]);
+  const element = document.querySelector('#popperBoundary') as HTMLElement;
+
+  const [reference, setReference] = useState<HTMLDivElement | null>(null);
+  const [popper, setPopper] = useState<HTMLDivElement | null>(null);
+
+  const { styles, attributes } = usePopper(reference, popper, {
+    modifiers: [
+      {
+        name: 'offset',
+        enabled: true,
+        options: {
+          offset: [0, 10]
+        }
+      },
+      {
+        name: 'preventOverflow',
+        options: {
+          boundary: element ? element : window.document.body
+        }
+      }
+    ]
+    //   strategy: 'fixed',
+  });
 
   return (
     <>
@@ -36,8 +60,18 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
         }}
       >
         <div ref={wrapperRef}>
-          {renderTrigger(() => setIsVisible(!isVisible))}
-          {isVisible && <>{children}</>}
+          <div ref={setReference}>
+            {renderTrigger(() => setIsVisible(!isVisible))}
+          </div>
+          {isVisible && (
+            <div
+              ref={setPopper}
+              style={{ ...styles.popper }}
+              {...attributes.popper}
+            >
+              {children}
+            </div>
+          )}
         </div>
       </DropdownContext.Provider>
     </>
