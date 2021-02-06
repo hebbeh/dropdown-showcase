@@ -6,7 +6,6 @@ export interface DropdownProps {
   children: ReactNode;
   renderTrigger: (onChange: any) => ReactNode | null;
 }
-// onChange(value: string): void;
 
 export default function Dropdown({ children, renderTrigger }: DropdownProps) {
   const [isVisible, setIsVisible] = useState(true);
@@ -19,7 +18,6 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Element)
       ) {
-        console.log('You clicked outside of me!');
         if (isVisible) setIsVisible(false);
       }
     }
