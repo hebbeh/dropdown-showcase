@@ -73,15 +73,15 @@ function Option({ children, tabIndex, onChange }: OptionProps) {
   );
 }
 
-interface Option {
+interface OptionValues {
   label: string;
   value: string;
 }
 export interface OptionListProps {
   tabIndex?: number;
-  options: Option[];
+  options: OptionValues[];
   onChange(value: string): void;
-  renderItem: (onChange: any, option: Option) => ReactNode | null;
+  renderItem: (onChange: any, option: OptionValues) => ReactNode | null;
 }
 
 export function OptionList({
