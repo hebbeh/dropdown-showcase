@@ -35,8 +35,10 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
           toggleVisibility: () => setIsVisible(!isVisible)
         }}
       >
-        {renderTrigger(() => setIsVisible(!isVisible))}
-        {isVisible && <div ref={wrapperRef}>{children}</div>}
+        <div ref={wrapperRef}>
+          {renderTrigger(() => setIsVisible(!isVisible))}
+          {isVisible && <>{children}</>}
+        </div>
       </DropdownContext.Provider>
     </>
   );
