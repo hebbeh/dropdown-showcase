@@ -1,38 +1,42 @@
-.root {
-  height: 100vh;
-  width: 100%;
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .container {
-  height: 100vh;
+  align-items: center;
   background-color: #fbfcff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  min-height: 100vh;
 }
 
 .headerContainer {
-  width: 60vw;
-  padding: 40px 12px 0px 12px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 40px 12px 0px 12px;
+  width: 60vw;
 }
 
 /* Above phone */
 @media (min-width: 768px) {
   .container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100vh;
+    height: 100%;
   }
 
   .headerContainer {
-    width: 60vw;
-    padding: 72px 20px 0px 20px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 72px 20px 0px 20px;
+    width: 60vw;
   }
 }
