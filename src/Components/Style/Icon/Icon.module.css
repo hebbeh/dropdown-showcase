@@ -1,5 +1,11 @@
 .placeholder {
   height: 18px;
-  width: 18px;
   image-rendering: pixelated;
+  width: 18px;
+}
+
+.menu {
+  height: 4px;
+  image-rendering: pixelated;
+  width: 20x;
 }
