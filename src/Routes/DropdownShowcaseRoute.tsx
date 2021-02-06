@@ -12,13 +12,9 @@ export default function DropdownShowcaseRoute() {
     'No action selected'
   );
 
-  const handleSelectChange = useCallback(
-    (value: string) => setFirstMenuAction(value),
-    []
-  );
-
-  // MOVE STATE TO BE HANDLED INSIDE, this puts too much
-  // implementation effort on the consumer.
+  // The consumer of the dropdown is in charge of what do do when the Option/OptionList onChange function is called
+  // In this simple usecase the states firstMenuAction and secondMenuAction are updated
+  const handleSelectChange = (value: string) => setFirstMenuAction(value);
 
   return (
     <>
