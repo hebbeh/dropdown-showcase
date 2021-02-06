@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import { DropdownContext } from './DropdownContext';
 import './Dropdown.css';
 
 export interface DropdownProps {
@@ -31,8 +32,14 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
 
   return (
     <>
-      {renderTrigger(() => setIsVisible(!isVisible))}
-      {isVisible && <div>{children}</div>}
+      <DropdownContext.Provider
+        value={{
+          toggleVisibility: () => setIsVisible(!isVisible)
+        }}
+      >
+        {renderTrigger(() => setIsVisible(!isVisible))}
+        {isVisible && <div>{children}</div>}
+      </DropdownContext.Provider>
     </>
   );
 }
@@ -52,9 +59,19 @@ export interface OptionProps {
 
 function Option({ children, tabIndex, onChange }: OptionProps) {
   return (
-    <div className="option" onClick={() => onChange()}>
-      <div className="optionContent">{children}</div>
-    </div>
+    <DropdownContext.Consumer>
+      {({ toggleVisibility }) => (
+        <div
+          className="option"
+          onClick={() => {
+            onChange();
+            toggleVisibility();
+          }}
+        >
+          <div className="optionContent">{children}</div>
+        </div>
+      )}
+    </DropdownContext.Consumer>
   );
 }
 
