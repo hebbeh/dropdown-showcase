@@ -1,56 +1,89 @@
-import React, { ReactNode, RefObject, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import './Dropdown.css';
 
 export interface DropdownProps {
   children: ReactNode;
+  renderTrigger: (onChange: any) => ReactNode | null;
 }
+// onChange(value: string): void;
 
-export default function Dropdown({ children }: DropdownProps) {
-  return <div>{children}</div>;
+export default function Dropdown({ children, renderTrigger }: DropdownProps) {
+  const [isVisible, setIsVisible] = useState(true);
+
+  //   const ref = useRef<HTMLDivElement>(null);
+  //   const handleClickOutside = (event: any) => {
+  //     if (ref.current && !ref.current.contains(event.target)) {
+  //       setIsVisible(false);
+  //     }
+  //   };
+
+  const handleClickOnTrigger = () => {
+    // setIsVisible(!isVisible);
+    console.log('isVisible', isVisible);
+  };
+
+  //   useEffect(() => {
+  //     document.addEventListener('click', handleClickOutside, true);
+  //     return () => {
+  //       document.removeEventListener('click', handleClickOutside, true);
+  //     };
+  //   });
+
+  return (
+    <>
+      {renderTrigger(() => setIsVisible(!isVisible))}
+      {isVisible && <div>{children}</div>}
+    </>
+  );
 }
 
 export interface MenuProps {
   children: ReactNode;
-  outsideClick(): void;
 }
 
-function Menu({ children, outsideClick }: MenuProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleClickOutside = (event: any) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      console.log('setFirstMenuVisible');
-      outsideClick();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
-    return () => {
-      document.removeEventListener('click', handleClickOutside, true);
-    };
-  });
-
-  return (
-    <div className="menu" ref={ref}>
-      {children}
-    </div>
-  );
+function Menu({ children }: MenuProps) {
+  return <div className="menu">{children}</div>;
 }
-
-export interface ItemProps {
+export interface OptionProps {
   children: ReactNode;
   tabIndex?: number;
   onChange(): void;
 }
 
-function Item({ children, tabIndex, onChange }: ItemProps) {
+function Option({ children, tabIndex, onChange }: OptionProps) {
   return (
-    <div className="item" onClick={() => onChange()}>
-      <div className="itemContent">{children}</div>
+    <div className="option" onClick={() => onChange()}>
+      <div className="optionContent">{children}</div>
     </div>
   );
 }
 
-Dropdown.Item = Item;
+interface Option {
+  label: string;
+  value: string;
+}
+export interface OptionListProps {
+  tabIndex?: number;
+  options: Option[];
+  onChange(value: string): void;
+  renderItem: (onChange: any, option: Option) => ReactNode | null;
+}
+
+export function OptionList({
+  tabIndex,
+  options,
+  onChange,
+  renderItem
+}: OptionListProps) {
+  return (
+    <>
+      {options.map((option) => {
+        return renderItem(() => onChange(option.value), option);
+      })}
+    </>
+  );
+}
+
+Dropdown.OptionList = OptionList;
+Dropdown.Option = Option;
 Dropdown.Menu = Menu;

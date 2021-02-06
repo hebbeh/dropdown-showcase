@@ -1,21 +1,25 @@
 /* Item */
-.item {
+.option {
   display: inline-block;
   background-color: #fbfcff;
   padding: 14px 14px;
 }
 
-.item:hover {
+.option:hover {
   background-color: #c8fff6;
 }
 
-.item:active {
+.option:active {
   background-color: #8dfdec;
 }
 
-.itemContent {
+.optionContent {
   display: flex;
   flex-direction: row;
+}
+
+.optionList {
+  display: flex;
 }
 
 /* Menu */
