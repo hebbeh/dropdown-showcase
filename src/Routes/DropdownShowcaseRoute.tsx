@@ -99,7 +99,7 @@ export default function DropdownShowcaseRoute() {
                 setSecondMenuAction('Action IC 2');
               }}
             >
-              <Icon type="placeholder" />
+              <Icon type="placeholderII" />
               <Space type="small" />
               <Typography type="content">
                 Individually composed option 2
@@ -110,7 +110,7 @@ export default function DropdownShowcaseRoute() {
                 setSecondMenuAction('Action IC 3');
               }}
             >
-              <Icon type="placeholder" />
+              <Icon type="placeholderIII" />
               <Space type="small" />
               <Typography type="content">
                 Individually composed option 3
@@ -121,7 +121,7 @@ export default function DropdownShowcaseRoute() {
                 setSecondMenuAction('Action IC 4');
               }}
             >
-              <Icon type="placeholder" />
+              <Icon type="placeholderIV" />
               <Space type="small" />
               <Typography type="content">
                 Individually composed option 4

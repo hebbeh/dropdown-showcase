@@ -1,4 +1,8 @@
-.placeholder {
+.placeholder,
+.placeholderII,
+.placeholderIII,
+.placeholderIV,
+.placeholderV {
   height: 18px;
   image-rendering: pixelated;
   width: 18px;
