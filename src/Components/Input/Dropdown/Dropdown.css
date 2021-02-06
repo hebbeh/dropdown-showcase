@@ -1,8 +1,9 @@
-/* Item */
+/* Option */
 .option {
   display: inline-block;
   background-color: #fbfcff;
   padding: 14px 14px;
+  cursor: 'pointer';
 }
 
 .option:hover {
@@ -18,12 +19,14 @@
   flex-direction: row;
 }
 
+/* OptionList */
 .optionList {
   display: flex;
 }
 
 /* Menu */
 .menu {
+  position: absolute;
   min-width: 76px;
   display: flex;
   flex-direction: column;
