@@ -101,7 +101,7 @@ export default function DropdownShowcaseRoute() {
             <Divider type="data" />
             <Space type="small" />
             <Dropdown.OptionList
-              options={dataToBePutInAMenuII}
+              options={dataToBePutInAMenuIII}
               onChange={() => handleSelectChange}
               renderItem={(onChange: any, option: any) => {
                 return (
@@ -124,14 +124,18 @@ export default function DropdownShowcaseRoute() {
 }
 
 const dataToBePutInAMenu = [
-  { label: 'Dropdown component', value: 'Action1' },
-  { label: 'Dropdown component', value: 'Action2' },
-  { label: 'Dropdown component', value: 'Action3' },
-  { label: 'Dropdown component', value: 'Action4' },
-  { label: 'Dropdown component', value: 'Action5' }
+  { label: 'Label option item 1', value: 'Action1' },
+  { label: 'Label option item 2', value: 'Action2' },
+  { label: 'Label option item 3', value: 'Action3' },
+  { label: 'Label option item 4', value: 'Action4' },
+  { label: 'Label option item 5', value: 'Action5' }
 ];
 
 const dataToBePutInAMenuII = [
-  { label: 'Dropdown component', value: 'Action6' },
-  { label: 'Dropdown component', value: 'Action7' }
+  { label: 'Label option item 6', value: 'Action6' },
+  { label: 'Label option item 7', value: 'Action7' }
+];
+const dataToBePutInAMenuIII = [
+  { label: 'Label option item 8', value: 'Action6' },
+  { label: 'Label option item 9', value: 'Action7' }
 ];
