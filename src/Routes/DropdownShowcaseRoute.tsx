@@ -24,39 +24,37 @@ export default function DropdownShowcaseRoute() {
         </div>
       </Typography>
       <Space type="medium" />
-      <div style={{ height: '260px' }}>
-        <Dropdown
-          renderTrigger={(onChange: any) => {
-            return (
-              <Button
-                onClick={() => {
-                  onChange();
-                }}
-              >
-                <Typography type="content">Menu One</Typography>
-              </Button>
-            );
-          }}
-        >
-          <Dropdown.Menu>
-            <Dropdown.OptionList
-              options={dataToBePutInAMenu}
-              onChange={() => handleSelectChange}
-              renderItem={(onChange: any, option: any) => {
-                return (
-                  <Dropdown.Option
-                    onChange={() => {
-                      setFirstMenuAction(option.value);
-                    }}
-                  >
-                    <Typography type="content">{option.label}</Typography>
-                  </Dropdown.Option>
-                );
+      <Dropdown
+        renderTrigger={(onChange: any) => {
+          return (
+            <Button
+              onClick={() => {
+                onChange();
               }}
-            />
-          </Dropdown.Menu>
-        </Dropdown>
-      </div>
+            >
+              <Typography type="content">Menu One</Typography>
+            </Button>
+          );
+        }}
+      >
+        <Dropdown.Menu>
+          <Dropdown.OptionList
+            options={dataToBePutInAMenu}
+            onChange={() => handleSelectChange}
+            renderItem={(onChange: any, option: any) => {
+              return (
+                <Dropdown.Option
+                  onChange={() => {
+                    setFirstMenuAction(option.value);
+                  }}
+                >
+                  <Typography type="content">{option.label}</Typography>
+                </Dropdown.Option>
+              );
+            }}
+          />
+        </Dropdown.Menu>
+      </Dropdown>
       <Space type="big" />
       <Space type="big" />
       <Typography type="subheader">
@@ -65,71 +63,69 @@ export default function DropdownShowcaseRoute() {
         </div>
       </Typography>
       <Space type="medium" />
-      <div style={{ height: '260px' }}>
-        <Dropdown
-          renderTrigger={(onChange: any) => {
-            return (
-              <div
-                onClick={() => {
-                  onChange();
-                }}
-              >
-                <Icon type="menu" />
-              </div>
-            );
-          }}
-        >
-          <Dropdown.Menu>
-            <Dropdown.Option
-              onChange={() => {
-                setSecondMenuAction('Action IC 1');
+      <Dropdown
+        renderTrigger={(onChange: any) => {
+          return (
+            <div
+              onClick={() => {
+                onChange();
               }}
             >
-              <Icon type="placeholder" />
-              <Space type="small" />
-              <Typography type="content">
-                Individually composed option 1
-              </Typography>
-            </Dropdown.Option>
-            <Space type="tiny" />
-            <Divider type="data" />
-            <Space type="tiny" />
-            <Dropdown.Option
-              onChange={() => {
-                setSecondMenuAction('Action IC 2');
-              }}
-            >
-              <Icon type="placeholderII" />
-              <Space type="small" />
-              <Typography type="content">
-                Individually composed option 2
-              </Typography>
-            </Dropdown.Option>
-            <Dropdown.Option
-              onChange={() => {
-                setSecondMenuAction('Action IC 3');
-              }}
-            >
-              <Icon type="placeholderIII" />
-              <Space type="small" />
-              <Typography type="content">
-                Individually composed option 3
-              </Typography>
-            </Dropdown.Option>{' '}
-            <Dropdown.Option
-              onChange={() => {
-                setSecondMenuAction('Action IC 4');
-              }}
-            >
-              <Icon type="placeholderIV" />
-              <Space type="small" />
-              <Typography type="content">
-                Individually composed option 4
-              </Typography>
-            </Dropdown.Option>
-          </Dropdown.Menu>
-        </Dropdown>
-      </div>
+              <Icon type="menu" />
+            </div>
+          );
+        }}
+      >
+        <Dropdown.Menu>
+          <Dropdown.Option
+            onChange={() => {
+              setSecondMenuAction('Action IC 1');
+            }}
+          >
+            <Icon type="placeholder" />
+            <Space type="small" />
+            <Typography type="content">
+              Individually composed option 1
+            </Typography>
+          </Dropdown.Option>
+          <Space type="tiny" />
+          <Divider type="data" />
+          <Space type="tiny" />
+          <Dropdown.Option
+            onChange={() => {
+              setSecondMenuAction('Action IC 2');
+            }}
+          >
+            <Icon type="placeholderII" />
+            <Space type="small" />
+            <Typography type="content">
+              Individually composed option 2
+            </Typography>
+          </Dropdown.Option>
+          <Dropdown.Option
+            onChange={() => {
+              setSecondMenuAction('Action IC 3');
+            }}
+          >
+            <Icon type="placeholderIII" />
+            <Space type="small" />
+            <Typography type="content">
+              Individually composed option 3
+            </Typography>
+          </Dropdown.Option>{' '}
+          <Dropdown.Option
+            onChange={() => {
+              setSecondMenuAction('Action IC 4');
+            }}
+          >
+            <Icon type="placeholderIV" />
+            <Space type="small" />
+            <Typography type="content">
+              Individually composed option 4
+            </Typography>
+          </Dropdown.Option>
+        </Dropdown.Menu>
+      </Dropdown>
     </>
   );
 }
