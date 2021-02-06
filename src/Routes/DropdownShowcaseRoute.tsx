@@ -74,47 +74,63 @@ export default function DropdownShowcaseRoute() {
                   onChange();
                 }}
               >
-                <Icon type="placeholder" />
+                <Icon type="menu" />
               </div>
             );
           }}
         >
           <Dropdown.Menu>
-            <Dropdown.OptionList
-              options={dataToBePutInAMenuII}
-              onChange={() => handleSelectChange}
-              renderItem={(onChange: any, option: any) => {
-                return (
-                  <Dropdown.Option
-                    onChange={() => {
-                      console.log('option.value', option.value);
-                      setSecondMenuAction(option.value);
-                    }}
-                  >
-                    <Typography type="content">{option.label}</Typography>
-                  </Dropdown.Option>
-                );
+            <Dropdown.Option
+              onChange={() => {
+                setSecondMenuAction('Action IC 1');
               }}
-            />
+            >
+              <Icon type="placeholder" />
+              <Space type="small" />
+
+              <Typography type="content">
+                Individually composed option 1
+              </Typography>
+            </Dropdown.Option>
+            <Dropdown.Option
+              onChange={() => {
+                setSecondMenuAction('Action IC 2');
+              }}
+            >
+              <Typography type="content">
+                Individually composed option 2
+              </Typography>
+            </Dropdown.Option>
             <Space type="small" />
             <Divider type="data" />
             <Space type="small" />
-            <Dropdown.OptionList
-              options={dataToBePutInAMenuIII}
-              onChange={() => handleSelectChange}
-              renderItem={(onChange: any, option: any) => {
-                return (
-                  <Dropdown.Option
-                    onChange={() => {
-                      console.log('option.value', option.value);
-                      setSecondMenuAction(option.value);
-                    }}
-                  >
-                    <Typography type="content">{option.label}</Typography>
-                  </Dropdown.Option>
-                );
+            <Dropdown.Option
+              onChange={() => {
+                setSecondMenuAction('Action IC 3');
               }}
-            />
+            >
+              <Typography type="content">
+                Individually composed option 3
+              </Typography>
+            </Dropdown.Option>{' '}
+            <Dropdown.Option
+              onChange={() => {
+                setSecondMenuAction('Action IC 4');
+              }}
+            >
+              <Typography type="content">
+                Individually composed option 4
+              </Typography>
+            </Dropdown.Option>{' '}
+            <Dropdown.Option
+              onChange={() => {
+                setSecondMenuAction('Action IC 5');
+              }}
+            >
+              <Typography type="content">
+                Individually composed option 5
+              </Typography>
+            </Dropdown.Option>
           </Dropdown.Menu>
         </Dropdown>
       </div>
