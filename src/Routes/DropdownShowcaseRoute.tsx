@@ -23,7 +23,9 @@ export default function DropdownShowcaseRoute() {
   return (
     <>
       <Typography type="subheader">
-        Selected action in menu: {firstMenuAction}
+        <div style={{ textAlign: 'center' }}>
+          Selected action in menu: {firstMenuAction}
+        </div>
       </Typography>
       <Space type="medium" />
       <div style={{ height: '260px' }}>
@@ -63,7 +65,9 @@ export default function DropdownShowcaseRoute() {
       <Space type="big" />
       <Space type="big" />
       <Typography type="subheader">
-        Selected action in menu: {secondMenuAction}
+        <div style={{ textAlign: 'center' }}>
+          Selected action in menu: {secondMenuAction}
+        </div>
       </Typography>
       <Space type="medium" />
       <div style={{ height: '260px' }}>
@@ -136,6 +140,6 @@ const dataToBePutInAMenuII = [
   { label: 'Label option item 7', value: 'Action7' }
 ];
 const dataToBePutInAMenuIII = [
-  { label: 'Label option item 8', value: 'Action6' },
-  { label: 'Label option item 9', value: 'Action7' }
+  { label: 'Label option item 8', value: 'Action8' },
+  { label: 'Label option item 9', value: 'Action9' }
 ];
