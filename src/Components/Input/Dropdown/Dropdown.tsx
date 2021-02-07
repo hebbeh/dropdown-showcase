@@ -64,12 +64,6 @@ export default function Dropdown({
         <div ref={wrapperRef}>
           <div
             ref={setReference}
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                setIsVisible(!isVisible);
-              }
-            }}
           >
             {renderTrigger(() => setIsVisible(!isVisible))}
           </div>
@@ -106,12 +100,6 @@ function Option({ children, onChange }: OptionProps) {
     <DropdownContext.Consumer>
       {({ toggleVisibility }) => (
         <div
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              toggleVisibility();
-            }
-          }}
-          tabIndex={0}
           className={styles.option}
           onClick={() => {
             onChange();
