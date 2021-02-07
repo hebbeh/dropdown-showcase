@@ -65,6 +65,8 @@ interface DropdownExampleProps {
   dropdownAction(action: string): void;
 }
 
+// Dropdown.Option is populated with a Typography instance
+// Composition is the same in all children, so a map is used
 function DropDownExampleOne({ dropdownAction }: DropdownExampleProps) {
   return (
     <Dropdown
@@ -102,6 +104,7 @@ const dataToBePutInAMenu = [
   { label: 'Label option item 5', value: 'Action 5' }
 ];
 
+// Dropdown.Option is populated with a Typography and invidiual Icon instance
 function DropDownExampleTwo({ dropdownAction }: DropdownExampleProps) {
   return (
     <Dropdown
@@ -158,10 +161,8 @@ function DropDownExampleTwo({ dropdownAction }: DropdownExampleProps) {
   );
 }
 
-interface DropdownExampleProps {
-  dropdownAction(action: string): void;
-}
-
+// Dropdown.Option is populated with a Typography, Divider and invidiual Icon instance
+// To illustrate how the menu width is set, the label lengths differ
 function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
   return (
     <Dropdown
