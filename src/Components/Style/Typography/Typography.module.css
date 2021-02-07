@@ -3,11 +3,6 @@
   font-size: 22px;
 }
 
-.subHeader {
-  color: #131820;
-  font-size: 20px;
-}
-
 .content {
   color: #131820;
   font-size: 16px;
@@ -18,15 +13,5 @@
   .header {
     color: #131820;
     font-size: 36px;
-  }
-
-  .subHeader {
-    color: #131820;
-    font-size: 24px;
-  }
-
-  .content {
-    color: #131820;
-    font-size: 16px;
   }
 }
