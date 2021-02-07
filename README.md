@@ -1,14 +1,10 @@
 # Dropdown
 
-`dropdown-showcase` is a TypeScript + React application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It contains a composable dropdown component, and to showcase the dropdown there are three examples on the home page. 
-
-<img src="https://github.com/hebbeh/dropdown-showcase/raw/main/dropdown.gif" width="402">
-
-Try resizing the window to see how the dropdowns place the menu in different scenarios!
+`dropdown-showcase` is a TypeScript + React application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It contains a composable dropdown component, and to showcase the dropdown there are three examples on the home page. Try resizing the window to see how the dropdowns place the menu in different scenarios!
 
 For design reference, see the [Figma sketch 🖍](https://www.figma.com/file/g83tMuzotKP5enbBxnmEJr/Dropdown-%F0%9F%8D%B1?node-id=0%3A1).
 
-Prettier is used to ensure all files follow the same guidelines.
+<img src="https://github.com/hebbeh/dropdown-showcase/raw/main/dropdown.gif" width="402">
 
 # The API
 The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. 
@@ -50,6 +46,8 @@ To run the application on you will need
 
 - Node.js: The JavaScript runtime used to run the React application. The version used for this app is *v14.4.0*
 - Yarn: A package/project manager for Node.js applications. The version used for this app is *1.22.4*
+
+Prettier is used to ensure all files follow the same guidelines.
 
 #### 2. Clone the repo to your machine & cd into it
 
