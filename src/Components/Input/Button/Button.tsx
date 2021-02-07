@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import './Button.css';
+import { ReactNode } from 'react';
+import styles from './Button.module.css';
 
 export interface ButtonProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ export interface ButtonProps {
 
 export default function Button({ children, onClick }: ButtonProps) {
   return (
-    <div className="button" onClick={() => onClick()}>
+    <div className={styles.button} onClick={() => onClick()}>
       {children}
     </div>
   );
