@@ -1,12 +1,13 @@
-# Getting Started with Create React App
+# Dropdown
 
-The TypeScript + React application was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and contains the examples where the dropdown is showcased in the applications only page. Prettier is used to ensure all files follow the same guidelines.
+`dropdown-showcase` is a TypeScript + React application bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and contains a dropdown component. To showcase the dropdown there is are three examples on the home page. 
 
 Try resizing the window to see how the dropdowns place the menu in different scenarios!
 
 For design reference, see the [Figma sketch 🖍](https://www.figma.com/file/g83tMuzotKP5enbBxnmEJr/Dropdown-%F0%9F%8D%B1?node-id=0%3A1).
+Prettier is used to ensure all files follow the same guidelines.
 
-# The Dropdown
+# The API
 The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. The `Dropdown.Option` fires the provided action function, as well as handles toggling the dropdown visibility.
 
 To trigger opening and closing the dropdown using a trigger, a `renderTrigger` is passed in as a property. This can be any component, but the user needs to include a support for the trigger to accept an onClick function. This is so that the click is defined inside the trigger so the consumer controls it, and not wrapped around it out of the consumers reach. 
