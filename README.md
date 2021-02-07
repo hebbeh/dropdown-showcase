@@ -4,6 +4,8 @@ The TypeScript + React application was bootstrapped with [Create React App](http
 
 Try resizing the window to see how the dropdowns place the menu in different scenarios!
 
+For design reference, see the [Figma sketch 🖍](https://www.figma.com/file/g83tMuzotKP5enbBxnmEJr/Dropdown-%F0%9F%8D%B1?node-id=0%3A1).
+
 # The Dropdown
 The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. The `Dropdown.Option` fires the provided action function, as well as handles toggling the dropdown visibility.
 
@@ -16,6 +18,7 @@ In addition to `Dropdown` there is are some additional components, used for inpu
 - `Space`
 - `Button`
 
+The positioning of the menu is done with [`Popper.js` lib](https://popper.js.org/).
 
 # Get started
 #### 1. Dependencies
@@ -23,7 +26,7 @@ In addition to `Dropdown` there is are some additional components, used for inpu
 To run the application on you will need
 
 - Node.js: The JavaScript runtime used to run the React application. The version used for this app is *v14.4.0*
-- Yarn: A package/project manager for Node.js applications.
+- Yarn: A package/project manager for Node.js applications. The version used for this app is *1.22.4*
 
 #### 2. Clone the repo to your machine & cd into it
 
@@ -42,3 +45,18 @@ I runs the app in the development mode. Open [http://localhost:3000](http://loca
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode. Currently only two simple tests that render a dropdown and emulate a click on it exist.
+
+# TODOS
+- Only breakpoints for phone and desktop taken into consideration to save time, design and breakpoints needed for tablets, TV as well.
+
+- Ellipsis functionaity in Typography to avoid cutting too long text in `OptionList`.
+
+- Move colors to color tokens, only use variables when referencing colors.
+
+- Menu could be extracted as a separate card component, depending on the overall design and component structure of the system.
+
+- Options could be extracted as a separate `ListItem` component, that can be used in tables etc. Depending on the difference is styling this would vary in value? Might become messy with props and too broad usecase.
+
+- Test screens for Jest snapshot testing of components, as well as functional testing of the `Dropdown`.
+
+- Support for tab navigation, where the focus state is only shown when a keyboard is used. Decided to not include the first iteration of tab navigation added in [9892746](https://github.com/hebbeh/dropdown-showcase/commit/98927461e8aca8a2f1b7fb6b270e14381bd1fd62), since it meant the other interactive states where not properly handled.
