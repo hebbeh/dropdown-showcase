@@ -1,6 +1,6 @@
 # Dropdown
 
-`dropdown-showcase` is a TypeScript + React application bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and contains a dropdown component. To showcase the dropdown there is are three examples on the home page. 
+`dropdown-showcase` is a TypeScript + React application bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It contains a composable dropdown component, and to showcase the dropdown there are three examples on the home page. 
 
 <img src="https://github.com/hebbeh/dropdown-showcase/raw/main/dropdown.gif" width="402">
 
