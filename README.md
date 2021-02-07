@@ -1,46 +1,44 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The TypeScript + React application was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and contains the examples where the dropdown is showcased in the applications only page. Prettier is used to ensure all files follow the same guidelines.
 
-## Available Scripts
+Try resizing the window to see how the dropdowns place the menu in different scenarios!
 
-In the project directory, you can run:
+# The Dropdown
+The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. The `Dropdown.Option` fires the provided action function, as well as handles toggling the dropdown visibility.
+
+To trigger opening and closing the dropdown using a trigger, a `renderTrigger` is passed in as a property. This can be any component, but the user needs to include a support for the trigger to accept an onClick function. This is so that the click is defined inside the trigger so the consumer controls it, and not wrapped around it out of the consumers reach. 
+
+In addition to `Dropdown` there is are some additional components, used for input, composing the examples and the home page,
+
+- `Typography`
+- `Divider`
+- `Space`
+- `Button`
+
+
+# Get started
+#### 1. Dependencies
+
+To run the application on you will need
+
+- Node.js: The JavaScript runtime used to run the React application. The version used for this app is *v14.4.0*
+- Yarn: A package/project manager for Node.js applications.
+
+#### 2. Clone the repo to your machine & cd into it
+
+#### 3. Available Scripts
+
+Make sure you are on node version v14.4.0. To install all dependencies, run
+
+### `yarn`
+
+To start the app, run
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser. You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Launches the test runner in the interactive watch mode. Currently only two simple tests that render a dropdown and emulate a click on it exist.
