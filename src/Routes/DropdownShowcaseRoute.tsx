@@ -32,7 +32,7 @@ export default function DropdownShowcaseRoute() {
       <Space type="big" />
       <Typography type="content">
         <div style={{ textAlign: 'center' }}>
-          Selected action in menu: {firstMenuAction}
+          Selected action in menu 1: {firstMenuAction}
         </div>
       </Typography>
       <Space type="medium" />
@@ -41,7 +41,7 @@ export default function DropdownShowcaseRoute() {
       <Space type="big" />
       <Typography type="content">
         <div style={{ textAlign: 'center' }}>
-          Selected action in menu: {secondMenuAction}
+          Selected action in menu 2: {secondMenuAction}
         </div>
       </Typography>
       <Space type="medium" />
@@ -50,7 +50,7 @@ export default function DropdownShowcaseRoute() {
       <Space type="big" />
       <Typography type="content">
         <div style={{ textAlign: 'center' }}>
-          Selected action in menu: {thirdMenuAction}
+          Selected action in menu 3: {thirdMenuAction}
         </div>
       </Typography>
       <Space type="medium" />
@@ -167,7 +167,7 @@ function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
       renderTrigger={(onClick: any) => {
         return (
           <Button onClick={onClick}>
-            <Typography type="content">Menu One</Typography>
+            <Typography type="content">Menu Three</Typography>
           </Button>
         );
       }}
@@ -180,8 +180,9 @@ function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
         >
           <Icon type="placeholder" />
           <Space type="small" />
-          <Typography type="content">Short composed option 1</Typography>
+          <Typography type="content">Short option 1</Typography>
         </Dropdown.Option>
+        <Divider type="data" />
         <Dropdown.Option
           onChange={() => {
             dropdownAction('Action 2');
@@ -189,10 +190,9 @@ function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
         >
           <Icon type="placeholderII" />
           <Space type="small" />
-          <Typography type="content">
-            A much longer composed option 2
-          </Typography>
+          <Typography type="content">A much longer option 2</Typography>
         </Dropdown.Option>
+        <Divider type="data" />
         <Dropdown.Option
           onChange={() => {
             dropdownAction('Action 3');
@@ -200,7 +200,7 @@ function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
         >
           <Icon type="placeholderIII" />
           <Space type="small" />
-          <Typography type="content">Medium composed option 3</Typography>
+          <Typography type="content">Medium option 3</Typography>
         </Dropdown.Option>
       </Dropdown.Menu>
     </Dropdown>
