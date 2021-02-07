@@ -7,5 +7,9 @@
 }
 
 .button:hover {
-  background-color: #8dfdec;
+  background-color: #c8fff6;
+}
+
+.button:active {
+  background-color: #30ffe6;
 }
