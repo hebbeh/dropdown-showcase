@@ -1,9 +1,9 @@
-import './Divider.css';
+import styles from './Divider.module.css';
 
 export interface DividerProps {
-  type?: 'decorative' | 'data';
+  type: 'decorative' | 'data';
 }
 
 export default function Divider({ type }: DividerProps) {
-  return <div className={type} />;
+  return <div className={styles[type]} />;
 }
