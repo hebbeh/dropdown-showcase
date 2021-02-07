@@ -15,22 +15,27 @@ export default function DropdownShowcaseRoute() {
 
   return (
     <>
-      <div style={{textAlign: 'center'}}>
-      <Typography type="content">
-          Here are three examples of the Dropdown component. They all have been composed using <span style={{background: '#E3E3E3'}}>Dropdown</span>, <span style={{background: '#E3E3E3'}}>Dropdown.Menu</span>, and <span style={{background: '#E3E3E3'}}>Dropdown.Option</span>, as well as some layout and styling components.
-          <Space type="small"/>
-          Try resizing the window to see how the dropdowns place the menu in different scenarios.
-      </Typography>
+      <div style={{ textAlign: 'center' }}>
+        <Typography type="content">
+          Here are three examples of the Dropdown component. They all have been
+          composed using <span style={{ background: '#E3E3E3' }}>Dropdown</span>
+          , <span style={{ background: '#E3E3E3' }}>Dropdown.Menu</span>, and{' '}
+          <span style={{ background: '#E3E3E3' }}>Dropdown.Option</span>, as
+          well as some layout and styling components.
+          <Space type="small" />
+          Try resizing the window to see how the dropdowns place the menu in
+          different scenarios.
+        </Typography>
       </div>
-      <Space type="big" /> 
+      <Space type="big" />
       <Divider type="data" />
-      <Space type="big" /> 
+      <Space type="big" />
       <Typography type="content">
         <div style={{ textAlign: 'center' }}>
           Selected action in menu: {firstMenuAction}
         </div>
       </Typography>
-      <Space type="medium" /> 
+      <Space type="medium" />
       <DropDownExampleOne dropdownAction={setFirstMenuAction} />
       <Space type="big" />
       <Space type="big" />
