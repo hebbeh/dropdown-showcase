@@ -62,11 +62,23 @@ export default function Dropdown({
         }}
       >
         <div ref={wrapperRef}>
-          <div ref={setReference}>
+          <div
+            ref={setReference}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                setIsVisible(!isVisible);
+              }
+            }}
+          >
             {renderTrigger(() => setIsVisible(!isVisible))}
           </div>
           {isVisible && (
-            <div ref={setPopper} style={styles.popper} {...attributes.popper}>
+            <div
+              ref={setPopper}
+              style={styles.popper}
+              {...attributes.popper}
+            >
               {children}
             </div>
           )}
@@ -85,16 +97,21 @@ function Menu({ children }: MenuProps) {
 }
 export interface OptionProps {
   children: ReactNode;
-  tabIndex?: number;
   onChange(): void;
 }
 
 // Use context hook instead?
-function Option({ children, tabIndex, onChange }: OptionProps) {
+function Option({ children, onChange }: OptionProps) {
   return (
     <DropdownContext.Consumer>
       {({ toggleVisibility }) => (
         <div
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              toggleVisibility();
+            }
+          }}
+          tabIndex={0}
           className={styles.option}
           onClick={() => {
             onChange();
