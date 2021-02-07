@@ -19,11 +19,6 @@
   flex-direction: row;
 }
 
-/* OptionList */
-.optionList {
-  display: flex;
-}
-
 /* Menu */
 .menu {
   display: flex;
