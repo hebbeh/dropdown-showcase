@@ -19,7 +19,7 @@ export default function DropdownShowcaseRoute() {
         <Typography type="content">
           Here are three examples of the Dropdown component. They all have been
           composed using <span style={{ background: '#E3E3E3' }}>Dropdown</span>
-          , <span style={{ background: '#E3E3E3' }}>Dropdown.Menu</span>, and{' '}
+          , <span style={{ background: '#E3E3E3' }}>Dropdown.Menu</span>, and
           <span style={{ background: '#E3E3E3' }}>Dropdown.Option</span>, as
           well as some layout and styling components.
           <Space type="small" />
@@ -55,6 +55,8 @@ export default function DropdownShowcaseRoute() {
       </Typography>
       <Space type="medium" />
       <DropDownExampleThree dropdownAction={setThirdMenuAction} />
+      <Space type="big" />
+      <Space type="big" />
     </>
   );
 }
