@@ -11,25 +11,45 @@ export default function DropdownShowcaseRoute() {
   const [secondMenuAction, setSecondMenuAction] = useState(
     'No action selected'
   );
+  const [thirdMenuAction, setThirdMenuAction] = useState('No action selected');
 
   return (
     <>
-      <Typography type="subheader">
+      <div style={{textAlign: 'center'}}>
+      <Typography type="content">
+          Here are three examples of the Dropdown component. They all have been composed using <span style={{background: '#E3E3E3'}}>Dropdown</span>, <span style={{background: '#E3E3E3'}}>Dropdown.Menu</span>, and <span style={{background: '#E3E3E3'}}>Dropdown.Option</span>, as well as some layout and styling components.
+          <Space type="small"/>
+          Try resizing the window to see how the dropdowns place the menu in different scenarios.
+      </Typography>
+      </div>
+      <Space type="big" /> 
+      <Divider type="data" />
+      <Space type="big" /> 
+      <Typography type="content">
         <div style={{ textAlign: 'center' }}>
           Selected action in menu: {firstMenuAction}
         </div>
       </Typography>
-      <Space type="big" />
+      <Space type="medium" /> 
       <DropDownExampleOne dropdownAction={setFirstMenuAction} />
       <Space type="big" />
       <Space type="big" />
-      <Typography type="subheader">
+      <Typography type="content">
         <div style={{ textAlign: 'center' }}>
           Selected action in menu: {secondMenuAction}
         </div>
       </Typography>
       <Space type="medium" />
       <DropDownExampleTwo dropdownAction={setSecondMenuAction} />
+      <Space type="big" />
+      <Space type="big" />
+      <Typography type="content">
+        <div style={{ textAlign: 'center' }}>
+          Selected action in menu: {thirdMenuAction}
+        </div>
+      </Typography>
+      <Space type="medium" />
+      <DropDownExampleThree dropdownAction={setThirdMenuAction} />
     </>
   );
 }
@@ -125,6 +145,57 @@ function DropDownExampleTwo({ dropdownAction }: DropdownExampleProps) {
           <Icon type="placeholderIV" />
           <Space type="small" />
           <Typography type="content">Individually composed option 4</Typography>
+        </Dropdown.Option>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+interface DropdownExampleProps {
+  dropdownAction(action: string): void;
+}
+
+function DropDownExampleThree({ dropdownAction }: DropdownExampleProps) {
+  return (
+    <Dropdown
+      menuPlacement="bottom-start"
+      renderTrigger={(onClick: any) => {
+        return (
+          <Button onClick={onClick}>
+            <Typography type="content">Menu One</Typography>
+          </Button>
+        );
+      }}
+    >
+      <Dropdown.Menu>
+        <Dropdown.Option
+          onChange={() => {
+            dropdownAction('Action 1');
+          }}
+        >
+          <Icon type="placeholder" />
+          <Space type="small" />
+          <Typography type="content">Short composed option 1</Typography>
+        </Dropdown.Option>
+        <Dropdown.Option
+          onChange={() => {
+            dropdownAction('Action 2');
+          }}
+        >
+          <Icon type="placeholderII" />
+          <Space type="small" />
+          <Typography type="content">
+            A much longer composed option 2
+          </Typography>
+        </Dropdown.Option>
+        <Dropdown.Option
+          onChange={() => {
+            dropdownAction('Action 3');
+          }}
+        >
+          <Icon type="placeholderIII" />
+          <Space type="small" />
+          <Typography type="content">Medium composed option 3</Typography>
         </Dropdown.Option>
       </Dropdown.Menu>
     </Dropdown>
