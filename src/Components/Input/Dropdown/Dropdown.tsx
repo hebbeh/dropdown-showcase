@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useEffect, useRef } from 'react';
 import { usePopper } from 'react-popper';
 import { DropdownContext } from './DropdownContext';
-import './Dropdown.css';
+import styles from './Dropdown.module.css';
 
 export interface DropdownProps {
   children: ReactNode;
@@ -33,7 +33,6 @@ export default function Dropdown({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [wrapperRef, isVisible]);
-  const element = document.querySelector('#popperBoundary') as HTMLElement;
 
   const [reference, setReference] = useState<HTMLDivElement | null>(null);
   const [popper, setPopper] = useState<HTMLDivElement | null>(null);
@@ -50,13 +49,9 @@ export default function Dropdown({
         }
       },
       {
-        name: 'preventOverflow',
-        options: {
-          boundary: element ? element : window.document.body
-        }
+        name: 'preventOverflow'
       }
     ]
-    //   strategy: 'fixed',
   });
 
   return (
@@ -71,11 +66,7 @@ export default function Dropdown({
             {renderTrigger(() => setIsVisible(!isVisible))}
           </div>
           {isVisible && (
-            <div
-              ref={setPopper}
-              style={{ ...styles.popper }}
-              {...attributes.popper}
-            >
+            <div ref={setPopper} style={styles.popper} {...attributes.popper}>
               {children}
             </div>
           )}
@@ -90,7 +81,7 @@ export interface MenuProps {
 }
 
 function Menu({ children }: MenuProps) {
-  return <div className="menu">{children}</div>;
+  return <div className={styles.menu}>{children}</div>;
 }
 export interface OptionProps {
   children: ReactNode;
@@ -98,50 +89,23 @@ export interface OptionProps {
   onChange(): void;
 }
 
+// Use context hook instead?
 function Option({ children, tabIndex, onChange }: OptionProps) {
   return (
     <DropdownContext.Consumer>
       {({ toggleVisibility }) => (
         <div
-          className="option"
+          className={styles.option}
           onClick={() => {
             onChange();
             toggleVisibility();
           }}
         >
-          <div className="optionContent">{children}</div>
+          <div className={styles.optionContent}>{children}</div>
         </div>
       )}
     </DropdownContext.Consumer>
   );
 }
-
-interface OptionValues {
-  label: string;
-  value: string;
-}
-export interface OptionListProps {
-  tabIndex?: number;
-  options: OptionValues[];
-  onChange(value: string): void;
-  renderItem: (onChange: any, option: OptionValues) => ReactNode | null;
-}
-
-export function OptionList({
-  tabIndex,
-  options,
-  onChange,
-  renderItem
-}: OptionListProps) {
-  return (
-    <>
-      {options.map((option) => {
-        return renderItem(() => onChange(option.value), option);
-      })}
-    </>
-  );
-}
-
-Dropdown.OptionList = OptionList;
 Dropdown.Option = Option;
 Dropdown.Menu = Menu;
