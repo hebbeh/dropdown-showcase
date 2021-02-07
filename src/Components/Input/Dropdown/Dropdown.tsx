@@ -6,9 +6,14 @@ import './Dropdown.css';
 export interface DropdownProps {
   children: ReactNode;
   renderTrigger: (onChange: any) => ReactNode | null;
+  menuPlacement?: 'bottom-start' | 'bottom';
 }
 
-export default function Dropdown({ children, renderTrigger }: DropdownProps) {
+export default function Dropdown({
+  children,
+  renderTrigger,
+  menuPlacement
+}: DropdownProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   // Close menu if user clicks outside of it
@@ -33,13 +38,15 @@ export default function Dropdown({ children, renderTrigger }: DropdownProps) {
   const [reference, setReference] = useState<HTMLDivElement | null>(null);
   const [popper, setPopper] = useState<HTMLDivElement | null>(null);
 
+  // Add prop for deciding outer boundary for popper?
   const { styles, attributes } = usePopper(reference, popper, {
+    placement: menuPlacement ? menuPlacement : 'bottom',
     modifiers: [
       {
         name: 'offset',
         enabled: true,
         options: {
-          offset: [0, 10]
+          offset: [0, 6]
         }
       },
       {
