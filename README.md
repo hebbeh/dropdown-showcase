@@ -5,12 +5,32 @@
 Try resizing the window to see how the dropdowns place the menu in different scenarios!
 
 For design reference, see the [Figma sketch 🖍](https://www.figma.com/file/g83tMuzotKP5enbBxnmEJr/Dropdown-%F0%9F%8D%B1?node-id=0%3A1).
+
 Prettier is used to ensure all files follow the same guidelines.
 
 # The API
-The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. The `Dropdown.Option` fires the provided action function, as well as handles toggling the dropdown visibility.
+The `Dropdown`is a composable component that provides the inner components `Dropdown.Menu`, and `Dropdown.Option`. The Dropdown takes three properties; `children`, `renderTrigger` and `menuPlacement`. The children are in all examples wrapped with `Dropdown.Menu` to give them the styling decided for the dropdown. A different wrapper can be used. Inside the menu, the consumer defines each item in the dropdown by wrapping them in `Dropdown.Option`. 
 
-To trigger opening and closing the dropdown using a trigger, a `renderTrigger` is passed in as a property. This can be any component, but the user needs to include a support for the trigger to accept an onClick function. This is so that the click is defined inside the trigger so the consumer controls it, and not wrapped around it out of the consumers reach. 
+The `Dropdown.Option` takes children and an onChange function. It contains styling for the size its content takes, background color, hover and pressed state, and padding. The provided onChange fires when the `Dropdown.Option` is pressed/clicked. Internally, it also hides the dropdown menu. It's put inside the `Dropdown` to signal it's a core part of the parent component.
+
+```
+export interface OptionProps {
+  children: ReactNode;
+  onChange(): void;
+}
+```
+
+To trigger opening and closing the dropdown using a trigger, a `renderTrigger` is passed in as a property. This can be any component, but the user needs to include a support for the trigger to accept an onClick function. This is so that the click is defined inside the trigger so the consumer controls it, and not wrapped around it out of the consumers reach. In the below example the visibility for the menu is toggled on and off when the div around the `Icon` is clicked.
+
+```
+ renderTrigger={(onChange: any) => {
+        return (
+          <div onClick={onChange}>
+            <Icon type="menu" />
+          </div>
+        );
+      }}
+```
 
 In addition to `Dropdown` there is are some additional components, used for input, composing the examples and the home page,
 
