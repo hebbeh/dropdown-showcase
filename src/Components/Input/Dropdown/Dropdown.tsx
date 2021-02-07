@@ -27,7 +27,6 @@ export default function Dropdown({
         if (isVisible) setIsVisible(false);
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -62,17 +61,11 @@ export default function Dropdown({
         }}
       >
         <div ref={wrapperRef}>
-          <div
-            ref={setReference}
-          >
+          <div ref={setReference}>
             {renderTrigger(() => setIsVisible(!isVisible))}
           </div>
           {isVisible && (
-            <div
-              ref={setPopper}
-              style={styles.popper}
-              {...attributes.popper}
-            >
+            <div ref={setPopper} style={styles.popper} {...attributes.popper}>
               {children}
             </div>
           )}
