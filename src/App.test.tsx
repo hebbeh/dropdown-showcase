@@ -1,10 +1,16 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  act,
+  waitFor
+} from '@testing-library/react';
 import Dropdown from './Components/Input/Dropdown';
 import Typography from './Components/Style/Typography';
 import Button from './Components/Input/Button';
 
-test('renders learn react link', () => {
+test('renders dropdown and dropdown menu', async () => {
   render(
     <Dropdown
       menuPlacement="bottom-start"
@@ -18,11 +24,27 @@ test('renders learn react link', () => {
     >
       <Dropdown.Menu>
         <Dropdown.Option onChange={() => {}}>
-          <Typography type="content">"Label"</Typography>
+          <Typography type="content">Label</Typography>
         </Dropdown.Option>
       </Dropdown.Menu>
     </Dropdown>
   );
+
   const triggerElement = screen.getByText(/Menu trigger/i);
   expect(triggerElement).toBeInTheDocument();
+
+  act(() => {
+    fireEvent(
+      triggerElement,
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+      })
+    );
+  });
+
+  await waitFor(() => {
+    const menuElement = screen.getByText(/Label/i);
+    expect(menuElement).toBeInTheDocument();
+  });
 });
