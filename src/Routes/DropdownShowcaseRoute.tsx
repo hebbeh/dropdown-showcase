@@ -66,7 +66,7 @@ interface DropdownExampleProps {
 }
 
 // Dropdown.Option is populated with a Typography instance
-// Composition is the same in all children, so a map is used
+// There is no compositional difference in the children, so a map is used
 function DropDownExampleOne({ dropdownAction }: DropdownExampleProps) {
   return (
     <Dropdown
@@ -103,6 +103,9 @@ const dataToBePutInAMenu = [
   { label: 'Label option item 4', value: 'Action 4' },
   { label: 'Label option item 5', value: 'Action 5' }
 ];
+
+// The following two dropdowns are verbosely composed to show different ways of putting Dropdown.Options together
+// A map and conditonal rendering Dropdown.Options can be used instead
 
 // Dropdown.Option is populated with a Typography and invidiual Icon instance
 function DropDownExampleTwo({ dropdownAction }: DropdownExampleProps) {
