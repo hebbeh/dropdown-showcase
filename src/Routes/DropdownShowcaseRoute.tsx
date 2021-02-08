@@ -20,8 +20,10 @@ export default function DropdownShowcaseRoute() {
           Here are three examples of the Dropdown component. They all have been
           composed using <span style={{ background: '#ffe8e0' }}>Dropdown</span>
           , <span style={{ background: '#ffe8e0' }}>Dropdown.Menu</span>, and
-          <span style={{ background: '#ffe8e0' }}>Dropdown.Option</span>, as
-          well as some layout and styling components.
+          <span style={{ background: '#ffe8e0', marginLeft: '4px' }}>
+            Dropdown.Option
+          </span>
+          , as well as some layout and styling components.
           <Space type="small" />
           Try resizing the window to see how the dropdowns place the menu in
           different scenarios.
@@ -105,7 +107,7 @@ const dataToBePutInAMenu = [
 ];
 
 // The following two dropdowns are verbosely composed to show different ways of putting Dropdown.Options together
-// A map and conditonal rendering Dropdown.Options can be used instead
+// A map and conditonal rendering Dropdown.Options can be used instead, if desired
 
 // Dropdown.Option is populated with a Typography and invidiual Icon instance
 function DropDownExampleTwo({ dropdownAction }: DropdownExampleProps) {
